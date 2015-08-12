@@ -1,0 +1,10 @@
+package test;
+
+public class ThreadingUsingThread extends Thread {
+	@Override
+	public void run() {
+		DriverClass newClass = new DriverClass();
+		newClass.print();
+		super.run();
+	}
+}
