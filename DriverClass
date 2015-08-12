@@ -1,0 +1,31 @@
+package test;
+
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+public class DriverClass {
+
+	public synchronized void print() {
+		System.out.println("Entered");
+		System.out.println(Thread.currentThread().getId());
+		System.out.println("Exitted");
+	}
+
+	public static void main(String[] args) {
+		ThreadingUsingThread myThread;
+		myThread = new ThreadingUsingThread();
+
+		Thread realThread = new Thread(new ThreadingUsingRunnable());
+
+		myThread.run();
+		realThread.run();
+
+		ExecutorService es = Executors.newFixedThreadPool(3);
+		es.submit(realThread);
+		es.submit(realThread);
+		es.submit(realThread);
+		es.submit(realThread);
+
+	}
+
+}
