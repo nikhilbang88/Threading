@@ -1,0 +1,10 @@
+package test;
+
+public class ThreadingUsingRunnable implements Runnable {
+	@Override
+	public void run() {
+		DriverClass newClass = new DriverClass();
+		newClass.print();
+	}
+
+}
